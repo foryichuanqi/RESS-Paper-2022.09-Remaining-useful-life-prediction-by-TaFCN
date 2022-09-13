@@ -1,16 +1,16 @@
 # Remaining-useful-life-prediction-by-LM-and-TaFCN-in-CMAPSS-dataset
  Using Trend attention fully convolutional network for remaining useful life estimation in CMAPSS dataset. Signal selection, Attention mechanism, and Interpretability of deep learning are explored.
  
-# Citation
- （1）Please cite this paper and the original source of the dataset when using the code for academic purposes.
+# Paper of Code and Citation
+Please cite this paper and the original source of the dataset when using the code for academic purposes.
 
 (The website of paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 )
 
-GB/T 7714 
+GB/T 7714: 
 
 Fan L, Chai Y, Chen X. Trend attention fully convolutional network for remaining useful life estimation[J]. Reliability Engineering & System Safety, 2022: 108590.
 
-BibTex
+BibTex:
 
 @article{fan2022trend,
   title={Trend attention fully convolutional network for remaining useful life estimation},
@@ -22,7 +22,7 @@ BibTex
 }
 
 
-#Relationship between code and paper
+# Relationship between Code and Paper
 
  section 2.2. Loss boundary to mapping ability                        :code\signal selection   
 
@@ -37,17 +37,17 @@ BibTex
  Fig. 5. Wilcoxon signed rank test comparison of eight combinations   :code\figure\heatmap_p.py   and   code\table\wilcxon.py
 
 
-#Environment:
+# Environment and Acknowledgement:
 
+Environment:
 tensorflow-gpu            1.15.0
 keras                     2.2.4
 scipy                     1.5.2
 pandas                    1.0.5
 numpy                     1.19.1
 
-
-#Reference: 
-   Thanks for the following work sincerely.
+Acknowledgement: 
+   Thanks for the following references sincerely.
    github：https://github.com/Vardoom/PredictiveMaintenanceNASA/blob/master/preprocess.ipynb
    github：https://github.com/schwxd/LSTM-Keras-CMAPSS
    github：https://github.com/cauchyturing/UCR_Time_Series_Classification_Deep_Learning_Baseline
