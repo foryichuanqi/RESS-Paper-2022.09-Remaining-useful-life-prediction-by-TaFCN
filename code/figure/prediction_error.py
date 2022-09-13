@@ -268,7 +268,7 @@ def plot_prediction_error(model_name_list,id_num):
 
 
 
-    model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\prediction_error\FD{}\{}.h5".format(FD,model_name_list[0]),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+    model=keras.models.load_model(r"..\..\model\prediction_error\FD{}\{}.h5".format(FD,model_name_list[0]),custom_objects={'root_mean_squared_error': root_mean_squared_error})
     y_test_pred=model.predict(x_test)
     
     print(y_test_unmaxed.min(),y_test_unmaxed.max())
@@ -339,7 +339,7 @@ def plot_prediction_error(model_name_list,id_num):
 
 
 
-    model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\prediction_error\FD{}\{}.h5".format(FD,model_name_list[1]),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+    model=keras.models.load_model(r"..\..\model\prediction_error\FD{}\{}.h5".format(FD,model_name_list[1]),custom_objects={'root_mean_squared_error': root_mean_squared_error})
     y_test_pred=model.predict(x_test)
     
     print(y_test_unmaxed.min(),y_test_unmaxed.max())
@@ -400,7 +400,7 @@ def plot_prediction_error(model_name_list,id_num):
 
 
 
-    model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\prediction_error\FD{}\{}.h5".format(FD,model_name_list[2]),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+    model=keras.models.load_model(r"..\..\model\prediction_error\FD{}\{}.h5".format(FD,model_name_list[2]),custom_objects={'root_mean_squared_error': root_mean_squared_error})
     y_test_pred=model.predict(x_test)
     
     print(y_test_unmaxed.min(),y_test_unmaxed.max())
@@ -515,8 +515,8 @@ for i in range(ID,ID+1):
     ax.invert_xaxis()
     # plt.legend(loc="lower right")
     plt.legend()
-    plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\prediction_error{}_{}.eps'.format(FD,id_num),dpi=800,format='eps',bbox_inches = 'tight')
-    plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\prediction_error{}_{}.png'.format(FD,id_num),dpi=800,format='png',bbox_inches = 'tight')
+    plt.savefig(r'..\..\RUL\figure\by_kernel\prediction_error{}_{}.eps'.format(FD,id_num),dpi=800,format='eps',bbox_inches = 'tight')
+    plt.savefig(r'..\..\figure\by_kernel\prediction_error{}_{}.png'.format(FD,id_num),dpi=800,format='png',bbox_inches = 'tight')
 
     plt.show() #IDE展示
 

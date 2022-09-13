@@ -20,8 +20,8 @@ Created on Sun Oct 25 11:57:24 2020
 from scipy import stats
 import numpy as np
 import pandas as pd
-path = r'F:\桌面11.17\project\RUL\table\10\RUL_feature_select_comparison_table.xlsx'
-# path = r'F:\桌面11.17\project\RUL\table\for_rank1.xlsx'
+path = r'..\..\table\10\RUL_feature_select_comparison_table.xlsx'
+
 data = pd.DataFrame(pd.read_excel(path))#读取数据,设置None可以生成一个字典，字典中的key值即为sheet名字，此时不用使用DataFram，会报错
 
 
@@ -39,7 +39,7 @@ print(average_rank)
 ################  best rank num  
 rank_list=[]
 for i in range(len(data.index)):
-    rank_list.append(np.array(data.loc[i].rank(method='min')))  ###########choice  min https://blog.csdn.net/weixin_42926612/article/details/90265032
+    rank_list.append(np.array(data.loc[i].rank(method='min')))  ###########choice
 rank_array=np.array(rank_list)
 
 rank_array[rank_array>1]=0

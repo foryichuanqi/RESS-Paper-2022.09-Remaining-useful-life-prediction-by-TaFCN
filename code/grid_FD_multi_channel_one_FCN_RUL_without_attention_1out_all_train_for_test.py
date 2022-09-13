@@ -5,89 +5,6 @@ Created on Thu Apr  1 16:34:54 2021
 @author: Administrator
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 22 22:23:26 2021
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 10 11:26:50 2021
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb 28 11:44:02 2021
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 23 16:07:41 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 23 10:13:20 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 23 08:05:20 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 22 21:49:50 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb 21 22:27:27 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep  7 15:56:51 2020
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep  7 09:09:43 2020
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep  1 11:03:00 2020
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 26 19:28:39 2020
-
-@author: Administrator
-"""
 
 #import tensorflow as tf
 import os
@@ -376,121 +293,7 @@ for FD in['4']: ######['1','2','3','4']
     
     from tensorflow.python.ops import math_ops
     
-    class Constraint(object):
-    
-      def __call__(self, w):
-        return w
-    
-      def get_config(self):
-        return {}
-    
-    
-    @tf_export('keras.constraints.MaxNorm', 'keras.constraints.max_norm')
-    class MaxNorm(Constraint):
-      """MaxNorm weight constraint.
-      Constrains the weights incident to each hidden unit
-      to have a norm less than or equal to a desired value.
-      Arguments:
-          m: the maximum norm for the incoming weights.
-          axis: integer, axis along which to calculate weight norms.
-              For instance, in a `Dense` layer the weight matrix
-              has shape `(input_dim, output_dim)`,
-              set `axis` to `0` to constrain each weight vector
-              of length `(input_dim,)`.
-              In a `Conv2D` layer with `data_format="channels_last"`,
-              the weight tensor has shape
-              `(rows, cols, input_depth, output_depth)`,
-              set `axis` to `[0, 1, 2]`
-              to constrain the weights of each filter tensor of size
-              `(rows, cols, input_depth)`.
-      """
-    
-      def __init__(self, max_value=2, axis=0):
-        self.max_value = max_value
-        self.axis = axis
-    
-      def __call__(self, w):
-        norms = K.sqrt(
-            math_ops.reduce_sum(math_ops.square(w), axis=self.axis, keepdims=True))
-        desired = K.clip(norms, 0, self.max_value)
-        return w * (desired / (K.epsilon() + norms))
-    
-      def get_config(self):
-        return {'max_value': self.max_value, 'axis': self.axis}
-    
-    
-    @tf_export('keras.constraints.NonNeg', 'keras.constraints.non_neg')
-    class NonNeg(Constraint):
-      """Constrains the weights to be non-negative.
-      """
-    
-      def __call__(self, w):
-        return w * math_ops.cast(math_ops.greater_equal(w, 0.), K.floatx())
-    
-    
-    @tf_export('keras.constraints.UnitNorm', 'keras.constraints.unit_norm')
-    class UnitNorm(Constraint):
-      """Constrains the weights incident to each hidden unit to have unit norm.
-      Arguments:
-          axis: integer, axis along which to calculate weight norms.
-              For instance, in a `Dense` layer the weight matrix
-              has shape `(input_dim, output_dim)`,
-              set `axis` to `0` to constrain each weight vector
-              of length `(input_dim,)`.
-              In a `Conv2D` layer with `data_format="channels_last"`,
-              the weight tensor has shape
-              `(rows, cols, input_depth, output_depth)`,
-              set `axis` to `[0, 1, 2]`
-              to constrain the weights of each filter tensor of size
-              `(rows, cols, input_depth)`.
-      """
-    
-      def __init__(self, axis=0):
-        self.axis = axis
-    
-      def __call__(self, w):
-        return w / (
-            K.epsilon() + K.sqrt(
-                math_ops.reduce_sum(
-                    math_ops.square(w), axis=self.axis, keepdims=True)))
-    
-      def get_config(self):
-        return {'axis': self.axis}
-    
-    
-    
-
-    
-    
-    @tf_export('keras.constraints.Smooth', 'keras.constraints.smooth')
-    class Smooth(Constraint):
-      """Constrains the weights incident to each hidden unit to have unit norm.
-      Arguments:
-          axis: integer, axis along which to calculate weight norms.
-              For instance, in a `Dense` layer the weight matrix
-              has shape `(input_dim, output_dim)`,
-              set `axis` to `0` to constrain each weight vector
-              of length `(input_dim,)`.
-              In a `Conv2D` layer with `data_format="channels_last"`,
-              the weight tensor has shape
-              `(rows, cols, input_depth, output_depth)`,
-              set `axis` to `[0, 1, 2]`
-              to constrain the weights of each filter tensor of size
-              `(rows, cols, input_depth)`.
-      """
-    
-      def __init__(self, axis=0):
-        self.axis = axis
-    
-      def __call__(self, w):
-        return w * math_ops.cast(math_ops.greater_equal(w, 0.), K.floatx()) / (
-            K.epsilon() + 
-                math_ops.reduce_sum(
-                    w, axis=self.axis, keepdims=True))
-    
-      def get_config(self):
-        return {'axis': self.axis}
-    
+ 
     
    
     ################reduce_sum reduce dimensinality and get sum
@@ -583,7 +386,7 @@ for FD in['4']: ######['1','2','3','4']
         error_range_right_record=[]
         index_min_val_loss_record,min_val_loss_record=[],[]
         
-        if os.path.exists(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name))
+        if os.path.exists(r"..\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"..\experiments_result\method_error_txt\{}.txt".format(method_name))
     
      
     
@@ -623,12 +426,12 @@ for FD in['4']: ######['1','2','3','4']
   
             model_name='{}_dataset_{}_log{}_time{}'.format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S'))
             earlystopping=keras.callbacks.EarlyStopping(monitor='loss',patience=patience,verbose=1)
-            modelcheckpoint=keras.callbacks.ModelCheckpoint(monitor='loss',filepath=r"F:\桌面11.17\project\RUL\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),save_best_only=True,verbose=1)
+            modelcheckpoint=keras.callbacks.ModelCheckpoint(monitor='loss',filepath=r"..\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),save_best_only=True,verbose=1)
             hist = model.fit(X_train, Y_train, batch_size=batch_size, epochs=nb_epochs,
                       verbose=1, validation_data=(X_test, Y_test), callbacks = [reduce_lr,earlystopping,modelcheckpoint])   
   
             log = pd.DataFrame(hist.history)
-            log.to_excel(r"F:\桌面11.17\project\RUL\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
+            log.to_excel(r"..\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
             
             print(hist.history.keys())
             epochs=range(len(hist.history['loss']))
@@ -638,7 +441,7 @@ for FD in['4']: ######['1','2','3','4']
             plt.title('Traing and Validation loss')
             plt.legend()
             plt.show()
-            model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+            model=keras.models.load_model(r"..\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
             for layer in model.layers:
                 layer.trainable=False        
  
@@ -665,7 +468,7 @@ for FD in['4']: ######['1','2','3','4']
     
 
             
-            file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
+            file = open(r"..\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
             file.write( '       ('+str(i)+ ')   '+'index_min_loss:'+str(index_min_val_loss)+'        min_val_loss:'+str(min_val_loss)+'     RMSE:'+'    '+str('%.6f'%(rmse_value))+'     '+'UPE:'+'    '+str('%.6f'%(unbalanced_penalty_score))+'    '+'ER:'+'('+str('%.6f'%(error_range[0]))+','+str('%.6f'%(error_range[1]))+')')
          
        
@@ -679,7 +482,7 @@ for FD in['4']: ######['1','2','3','4']
                 error_range_left_record.remove(error_range_left_record[error_record.index(i)])
                 error_range_right_record.remove(error_range_right_record[error_record.index(i)])
                 error_record.remove(i)
-        file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
+        file = open(r"..\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
         file.write('    mean_score:'+'     ('+str(np.mean(error_record))+')     '+'       '+'     mean_RMSE:   '+ str('%.6f'%(np.mean(error_record)))+'     '+'UPE:    '+ str('%.6f'%(np.mean(unbalanced_penalty_score_record)))+ '    ('+str('%.6f'%(np.mean(error_range_left_record)))+','+str('%.6f'%(np.mean(error_range_right_record)))+')'+'        '  +'\n')
         file.close()
         error_record=[]

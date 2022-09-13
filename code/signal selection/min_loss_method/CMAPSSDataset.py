@@ -31,7 +31,7 @@ class CMAPSSDataset():
         self.feature_columns=feature_columns
         
         # read train_FD00x
-        data = pd.read_csv("C-MAPSS-Data\\train_FD00" + fd_number + ".txt", delimiter="\s+", header=None)
+        data = pd.read_csv("..\..\C-MAPSS-Data\\train_FD00" + fd_number + ".txt", delimiter="\s+", header=None)
         data.columns = columns
         self.engine_size = max(data['id'])
 
@@ -54,9 +54,9 @@ class CMAPSSDataset():
         self.train_data = join_data.reindex(columns=data.columns)
         
         # Read the test dataset by the RUL_FD00x.txt file.
-        test_data = pd.read_csv("C-MAPSS-Data\\test_FD00" + fd_number + ".txt", delimiter="\s+", header=None)
+        test_data = pd.read_csv("..\..\C-MAPSS-Data\\test_FD00" + fd_number + ".txt", delimiter="\s+", header=None)
         test_data.columns = columns
-        truth_data = pd.read_csv("C-MAPSS-Data\\RUL_FD00" + fd_number + ".txt", delimiter="\s+", header=None)
+        truth_data = pd.read_csv("..\..\C-MAPSS-Data\\RUL_FD00" + fd_number + ".txt", delimiter="\s+", header=None)
         truth_data.columns = ['truth']
         truth_data['id'] = truth_data.index + 1
         

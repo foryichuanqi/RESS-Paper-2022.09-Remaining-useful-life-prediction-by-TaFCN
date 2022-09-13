@@ -20,9 +20,11 @@ x  =np. array([[1, 0.20757844233562428, 0.00390625, 0.001953125, 0.001953125, 0.
 fig = sns.heatmap(x, annot = True,xticklabels=['LBFS+TaNet','F0+TaNet','F1+TaNet','F1 only','LBFS+A0','LBFS+A1', 'LBFS+A2','LBFS only'],yticklabels=['LBFS+TaNet','F0+TaNet','F1+TaNet','F1 only','LBFS+A0','LBFS+A1', 'LBFS+A2','LBFS only']).invert_yaxis()
 
 plt.xticks(range(0,8),['LBFS+TaNet','F0+TaNet','F1+TaNet','F1 only','LBFS+A0','LBFS+A1', 'LBFS+A2','LBFS only'],rotation=60)
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\heatmap_p_.eps',dpi=800,format='eps',bbox_inches = 'tight')
+plt.savefig(r'..\..\figure\by_kernel\heatmap_p_.eps',dpi=800,format='eps',bbox_inches = 'tight')
 
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\heatmap_p_.png',dpi=800,format='png',bbox_inches = 'tight')
+plt.savefig(r'..\..\figure\by_kernel\heatmap_p_.png',dpi=800,format='png',bbox_inches = 'tight')
+
+
 
 plt.show()
 

@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 19 17:13:09 2021
-
-@author: Administrator
-"""
 
 # -*- coding: utf-8 -*-
 """
@@ -50,7 +44,7 @@ def listdir(path, list_name):  #传入存储的list
         else:  
             list_name.append(file_path)
 list_name=[]
-listdir(r'F:\桌面11.17\project\RUL\experiments_result\log\feature_select_valid0\fd1',list_name)
+listdir(r'..\..\..\experiments_result\log\feature_select_valid0\fd1',list_name)
 feature_columns = ['setting1', 'setting2', 'setting3', 's1_', 's2_', 's3','s4', 's5', 's6', 's7', 's8',
         's9', 's10', 's11', 's12', 's13', 's14', 's15', 's16', 's17', 's18', 's19', 's20', 's21']
 list_same_feature=[]
@@ -134,7 +128,7 @@ print('\n')
 
 
 list_name=[]
-listdir(r'F:\桌面11.17\project\RUL\experiments_result\log\feature_select_valid0\fd2',list_name)
+listdir(r'..\..\..\experiments_result\log\feature_select_valid0\fd2',list_name)
 feature_columns = ['setting1', 'setting2', 'setting3', 's1_', 's2_', 's3','s4', 's5', 's6', 's7', 's8',
         's9', 's10', 's11', 's12', 's13', 's14', 's15', 's16', 's17', 's18', 's19', 's20', 's21']
 list_same_feature=[]
@@ -200,7 +194,7 @@ print('\n')
 
 
 list_name=[]
-listdir(r'F:\桌面11.17\project\RUL\experiments_result\log\feature_select_valid0\fd3',list_name)
+listdir(r'..\..\..\experiments_result\log\feature_select_valid0\fd3',list_name)
 feature_columns = ['setting1', 'setting2', 'setting3', 's1_', 's2_', 's3','s4', 's5', 's6', 's7', 's8',
         's9', 's10', 's11', 's12', 's13', 's14', 's15', 's16', 's17', 's18', 's19', 's20', 's21']
 list_same_feature=[]
@@ -267,7 +261,7 @@ print('\n')
 
 
 list_name=[]
-listdir(r'F:\桌面11.17\project\RUL\experiments_result\log\feature_select_valid0\fd4',list_name)
+listdir(r'..\..\..\experiments_result\log\feature_select_valid0\fd4',list_name)
 feature_columns = ['setting1', 'setting2', 'setting3', 's1_', 's2_', 's3','s4', 's5', 's6', 's7', 's8',
         's9', 's10', 's11', 's12', 's13', 's14', 's15', 's16', 's17', 's18', 's19', 's20', 's21']
 list_same_feature=[]

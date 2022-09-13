@@ -189,7 +189,7 @@ print("X_test.shape: {}".format(x_test.shape))
 print("Y_test.shape: {}".format(y_test.shape))
         
 
-model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\interpretability_TaNet\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+model=keras.models.load_model(r"..\..\model\interpretability_TaNet\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
 
 ############## Get CAM ################
 import matplotlib.pyplot as plt
@@ -271,8 +271,8 @@ plt.title(FD)
 # foo_fig = plt.gcf()
 # foo_fig.savefig(r'F:\桌面11.17\project\fluid_based_time_series_calssification\figure\box_compare_figure.eps',dpi=800,format='eps',bbox_inches = 'tight')
 # plt.savefig(r'F:\桌面11.17\project\fluid_based_time_series_calssification\figure\box_compare_figure.eps', dpi=150)
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\interpretability_TaNet_analysis_{}_{}.eps'.format(FD,model_name),dpi=800,format='eps',bbox_inches = 'tight')
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\interpretability_TaNet_analysis_{}_{}.png'.format(FD,model_name),dpi=800,format='png',bbox_inches = 'tight')
+plt.savefig(r'..\..\figure\by_kernel\interpretability_TaNet_analysis_{}_{}.eps'.format(FD,model_name),dpi=800,format='eps',bbox_inches = 'tight')
+plt.savefig(r'..\..\figure\by_kernel\interpretability_TaNet_analysis_{}_{}.png'.format(FD,model_name),dpi=800,format='png',bbox_inches = 'tight')
 
 plt.show()
 

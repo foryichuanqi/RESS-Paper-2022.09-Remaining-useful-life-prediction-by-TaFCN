@@ -5,82 +5,6 @@ Created on Mon Mar 22 22:23:26 2021
 @author: Administrator
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 10 11:26:50 2021
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb 28 11:44:02 2021
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 23 16:07:41 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 23 10:13:20 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 23 08:05:20 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 22 21:49:50 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb 21 22:27:27 2021
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep  7 15:56:51 2020
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep  7 09:09:43 2020
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep  1 11:03:00 2020
-
-@author: flc
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 26 19:28:39 2020
-
-@author: Administrator
-"""
 
 #import tensorflow as tf
 import os
@@ -510,67 +434,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     senet_reduction=1
     dim=11
     
-    #class SeBlock(keras.layers.Layer):   
-    #    def __init__(self, reduction=senet_reduction,**kwargs):
-    #        super(SeBlock,self).__init__(**kwargs)
-    #        self.reduction = reduction
-    #    def build(self,input_shape):#构建layer时需要实现
-    #    	#input_shape     
-    #    	pass
-    #    def call(self, inputs):
-    #        x = keras.layers.GlobalAveragePooling2D()(inputs)
-    #        x = keras.layers.Dense(int(x.shape[-1]) // self.reduction, use_bias=False,activation=keras.activations.relu)(x)
-    #        x = keras.layers.Dense(int(inputs.shape[-1]), use_bias=False,activation=keras.activations.hard_sigmoid)(x)
-    #        return keras.layers.Multiply()([inputs,x])    #给通道加权重
-            #return inputs*x   
-    
-    class SeBlock(keras.layers.Layer):   
-        def __init__(self,reduction=senet_reduction,**kwargs):
-            super(SeBlock,self).__init__(**kwargs)
-            self.reduction = reduction
-            
-        def build(self,input_shape):#构建layer时需要实现
-        	#input_shape  
-            # 为该层创建一个可训练的权重
-            self.kernel = self.add_weight(name='kernel', 
-                                          shape=(input_shape[-1],),
-                                          initializer='uniform',
-                                          trainable=True)
-            super(SeBlock, self).build(input_shape)  # 一定要在最后调用它
-            
-        def call(self, inputs):
-            x = keras.layers.GlobalAveragePooling2D()(inputs)
-            x = keras.layers.Dense(int(x.shape[-1]) // self.reduction, use_bias=False,activation=keras.activations.relu)(x)
-            self.kernel = keras.layers.Dense(int(inputs.shape[-1]), use_bias=False,activation=keras.activations.hard_sigmoid)(x)
-            return keras.layers.Multiply()([inputs,self.kernel])    #给通道加权重
-        
-        def compute_output_shape(self, input_shape):
-            return input_shape
-    
-    
-    #class MyLayer(Layer):
-    #
-    #    def __init__(self, output_dim, **kwargs):
-    #        self.output_dim = output_dim
-    #        super(MyLayer, self).__init__(**kwargs)
-    #
-    #    def build(self, input_shape):
-    #        # 为该层创建一个可训练的权重
-    #        self.kernel = self.add_weight(name='kernel', 
-    #                                      shape=(input_shape[1], self.output_dim),
-    #                                      initializer='uniform',
-    #                                      trainable=True)
-    #        super(MyLayer, self).build(input_shape)  # 一定要在最后调用它
-    #
-    #    def call(self, x):
-    #        return K.dot(x, self.kernel)
-    #
-    #    def compute_output_shape(self, input_shape):
-    #        return (input_shape[0], self.output_dim)
-    
-    #load dataset
-    
-    #num_feature=train_feature_slice.shape[2]
+
     
     def FCN_model():
     #    in0 = keras.Input(shape=(sequence_length,train_feature_slice.shape[1]))  # shape: (batch_size, 3, 2048)
@@ -635,7 +499,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
         error_range_right_record=[]
         index_min_val_loss_record,min_val_loss_record=[],[]
         
-        if os.path.exists(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name))
+        if os.path.exists(r"..\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"..\experiments_result\method_error_txt\{}.txt".format(method_name))
     
      
     
@@ -682,13 +546,13 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     #                  verbose=1, validation_split=VALIDATION_SPLIT, callbacks = [reduce_lr])   
             model_name='{}_dataset_{}_log{}_time{}'.format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S'))
             earlystopping=keras.callbacks.EarlyStopping(monitor='loss',patience=patience,verbose=1)
-            modelcheckpoint=keras.callbacks.ModelCheckpoint(monitor='loss',filepath=r"F:\桌面11.17\project\RUL\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),save_best_only=True,verbose=1)
+            modelcheckpoint=keras.callbacks.ModelCheckpoint(monitor='loss',filepath=r"..\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),save_best_only=True,verbose=1)
             hist = model.fit(X_train, Y_train, batch_size=batch_size, epochs=nb_epochs,
                       verbose=1, validation_data=(X_test, Y_test), callbacks = [reduce_lr,earlystopping,modelcheckpoint])   
     #        hist = model.fit(X_train, Y_train, batch_size=batch_size, epochs=nb_epochs,
     #                  verbose=1, validation_data=(X_test, Y_test), callbacks = [reduce_lr,earlystopping,modelcheckpoint])   
             log = pd.DataFrame(hist.history)
-            log.to_excel(r"F:\桌面11.17\project\RUL\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
+            log.to_excel(r"..\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
             
             print(hist.history.keys())
             epochs=range(len(hist.history['loss']))
@@ -703,8 +567,8 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     #1    97.856737
     #Name: val_loss, dtype: float64>        
             
-    #        model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error,'Smooth':Smooth,'SeBlock':SeBlock})
-            model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+    #        model=keras.models.load_model(r"..\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error,'Smooth':Smooth,'SeBlock':SeBlock})
+            model=keras.models.load_model(r"..\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
             for layer in model.layers:
                 layer.trainable=False        
     #        score = model.evaluate(X_test, Y_test)  ############forbid evaluate!!!!!!!!!!!!!!!!!!
@@ -723,7 +587,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
             
             
             # log = pd.DataFrame(hist.history)
-            # log.to_excel(r"F:\桌面11.17\project\RUL\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
+            # log.to_excel(r"..\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
             
             index_min_val_loss,min_val_loss=log['loss'].idxmin(axis=1), log.loc[log['loss'].idxmin]['val_loss']
             print(index_min_val_loss)
@@ -738,7 +602,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     ##        with open(r"F:\桌面11.17\project\fluid_based_time_series_calssification\experiments_result\log\{}_dataset_{}_log{}_time{}.txt".format(method_name,str(flist.index(each)),i,str(datetime.datetime.now())), 'wb') as file_txt:
     #            pickle.dump(hist.history, file_txt)
             
-            file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
+            file = open(r"..\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
             file.write( '       ('+str(i)+ ')   '+'index_min_loss:'+str(index_min_val_loss)+'        min_val_loss:'+str(min_val_loss)+'     RMSE:'+'    '+str('%.6f'%(rmse_value))+'     '+'UPE:'+'    '+str('%.6f'%(unbalanced_penalty_score))+'    '+'ER:'+'('+str('%.6f'%(error_range[0]))+','+str('%.6f'%(error_range[1]))+')')
          
     #        file.write( 'error:'+'   '+str('%.5f'%(1-log.loc[log['loss'].idxmin]['val_acc']))+'        '+'corresponding_min_loss:'+'   '+str('%.5f'%log.loc[log['loss'].idxmin]['loss']) +'        '+str(flist.index(each))+'        ' +each +'\n')
@@ -754,7 +618,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
                 error_range_left_record.remove(error_range_left_record[error_record.index(i)])
                 error_range_right_record.remove(error_range_right_record[error_record.index(i)])
                 error_record.remove(i)
-        file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
+        file = open(r"..\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
         file.write('    mean_score:'+'     ('+str(np.mean(error_record))+')     '+'       '+'     mean_RMSE:   '+ str('%.6f'%(np.mean(error_record)))+'     '+'UPE:    '+ str('%.6f'%(np.mean(unbalanced_penalty_score_record)))+ '    ('+str('%.6f'%(np.mean(error_range_left_record)))+','+str('%.6f'%(np.mean(error_range_right_record)))+')'+'        '  +'\n')
         file.close()
         error_record=[]

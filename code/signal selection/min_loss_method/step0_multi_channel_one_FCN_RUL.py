@@ -243,131 +243,7 @@ for FD in['3']:
         
         from tensorflow.python.ops import math_ops
         
-        class Constraint(object):
-        
-          def __call__(self, w):
-            return w
-        
-          def get_config(self):
-            return {}
-        
-        
-        @tf_export('keras.constraints.MaxNorm', 'keras.constraints.max_norm')
-        class MaxNorm(Constraint):
-          """MaxNorm weight constraint.
-          Constrains the weights incident to each hidden unit
-          to have a norm less than or equal to a desired value.
-          Arguments:
-              m: the maximum norm for the incoming weights.
-              axis: integer, axis along which to calculate weight norms.
-                  For instance, in a `Dense` layer the weight matrix
-                  has shape `(input_dim, output_dim)`,
-                  set `axis` to `0` to constrain each weight vector
-                  of length `(input_dim,)`.
-                  In a `Conv2D` layer with `data_format="channels_last"`,
-                  the weight tensor has shape
-                  `(rows, cols, input_depth, output_depth)`,
-                  set `axis` to `[0, 1, 2]`
-                  to constrain the weights of each filter tensor of size
-                  `(rows, cols, input_depth)`.
-          """
-        
-          def __init__(self, max_value=2, axis=0):
-            self.max_value = max_value
-            self.axis = axis
-        
-          def __call__(self, w):
-            norms = K.sqrt(
-                math_ops.reduce_sum(math_ops.square(w), axis=self.axis, keepdims=True))
-            desired = K.clip(norms, 0, self.max_value)
-            return w * (desired / (K.epsilon() + norms))
-        
-          def get_config(self):
-            return {'max_value': self.max_value, 'axis': self.axis}
-        
-        
-        @tf_export('keras.constraints.NonNeg', 'keras.constraints.non_neg')
-        class NonNeg(Constraint):
-          """Constrains the weights to be non-negative.
-          """
-        
-          def __call__(self, w):
-            return w * math_ops.cast(math_ops.greater_equal(w, 0.), K.floatx())
-        
-        
-        @tf_export('keras.constraints.UnitNorm', 'keras.constraints.unit_norm')
-        class UnitNorm(Constraint):
-          """Constrains the weights incident to each hidden unit to have unit norm.
-          Arguments:
-              axis: integer, axis along which to calculate weight norms.
-                  For instance, in a `Dense` layer the weight matrix
-                  has shape `(input_dim, output_dim)`,
-                  set `axis` to `0` to constrain each weight vector
-                  of length `(input_dim,)`.
-                  In a `Conv2D` layer with `data_format="channels_last"`,
-                  the weight tensor has shape
-                  `(rows, cols, input_depth, output_depth)`,
-                  set `axis` to `[0, 1, 2]`
-                  to constrain the weights of each filter tensor of size
-                  `(rows, cols, input_depth)`.
-          """
-        
-          def __init__(self, axis=0):
-            self.axis = axis
-        
-          def __call__(self, w):
-            return w / (
-                K.epsilon() + K.sqrt(
-                    math_ops.reduce_sum(
-                        math_ops.square(w), axis=self.axis, keepdims=True)))
-        
-          def get_config(self):
-            return {'axis': self.axis}
-        
-        
-        
-        # class NonNeg(Constraint):
-        #   """Constrains the weights to be non-negative.
-        #   """
-        
-        #   def __call__(self, w):
-        #     return w * math_ops.cast(math_ops.greater_equal(w, 0.), K.floatx())
-        
-        
-        @tf_export('keras.constraints.Smooth', 'keras.constraints.smooth')
-        class Smooth(Constraint):
-          """Constrains the weights incident to each hidden unit to have unit norm.
-          Arguments:
-              axis: integer, axis along which to calculate weight norms.
-                  For instance, in a `Dense` layer the weight matrix
-                  has shape `(input_dim, output_dim)`,
-                  set `axis` to `0` to constrain each weight vector
-                  of length `(input_dim,)`.
-                  In a `Conv2D` layer with `data_format="channels_last"`,
-                  the weight tensor has shape
-                  `(rows, cols, input_depth, output_depth)`,
-                  set `axis` to `[0, 1, 2]`
-                  to constrain the weights of each filter tensor of size
-                  `(rows, cols, input_depth)`.
-          """
-        
-          def __init__(self, axis=0):
-            self.axis = axis
-        
-          def __call__(self, w):
-            return w * math_ops.cast(math_ops.greater_equal(w, 0.), K.floatx()) / (
-                K.epsilon() + 
-                    math_ops.reduce_sum(
-                        w, axis=self.axis, keepdims=True))
-        
-          def get_config(self):
-            return {'axis': self.axis}
-        
-        
 
-        ################reduce_sum reduce dimensinality and get sum
-        
-        smooth=Smooth()
         
         
         senet_reduction=1
@@ -375,54 +251,10 @@ for FD in['3']:
         
 
         
-        class SeBlock(keras.layers.Layer):   
-            def __init__(self,reduction=senet_reduction,**kwargs):
-                super(SeBlock,self).__init__(**kwargs)
-                self.reduction = reduction
-                
-            def build(self,input_shape):#构建layer时需要实现
-            	#input_shape  
-                # 为该层创建一个可训练的权重
-                self.kernel = self.add_weight(name='kernel', 
-                                              shape=(input_shape[-1],),
-                                              initializer='uniform',
-                                              trainable=True)
-                super(SeBlock, self).build(input_shape)  # 一定要在最后调用它
-                
-            def call(self, inputs):
-                x = keras.layers.GlobalAveragePooling2D()(inputs)
-                x = keras.layers.Dense(int(x.shape[-1]) // self.reduction, use_bias=False,activation=keras.activations.relu)(x)
-                self.kernel = keras.layers.Dense(int(inputs.shape[-1]), use_bias=False,activation=keras.activations.hard_sigmoid)(x)
-                return keras.layers.Multiply()([inputs,self.kernel])    #给通道加权重
-            
-            def compute_output_shape(self, input_shape):
-                return input_shape
+
         
         
-        #class MyLayer(Layer):
-        #
-        #    def __init__(self, output_dim, **kwargs):
-        #        self.output_dim = output_dim
-        #        super(MyLayer, self).__init__(**kwargs)
-        #
-        #    def build(self, input_shape):
-        #        # 为该层创建一个可训练的权重
-        #        self.kernel = self.add_weight(name='kernel', 
-        #                                      shape=(input_shape[1], self.output_dim),
-        #                                      initializer='uniform',
-        #                                      trainable=True)
-        #        super(MyLayer, self).build(input_shape)  # 一定要在最后调用它
-        #
-        #    def call(self, x):
-        #        return K.dot(x, self.kernel)
-        #
-        #    def compute_output_shape(self, input_shape):
-        #        return (input_shape[0], self.output_dim)
-        
-        #load dataset
-        
-        #num_feature=train_feature_slice.shape[2]
-        
+
         def FCN_model():
         #    in0 = keras.Input(shape=(sequence_length,train_feature_slice.shape[1]))  # shape: (batch_size, 3, 2048)
         #    in0_shaped= keras.layers.Reshape((train_feature_slice.shape[1],sequence_length,1))(in0)   
@@ -460,20 +292,6 @@ for FD in['3']:
         
         
         
-        #    def reshapes(embed1):
-        #        embed = tf.reshape(embed1, [train_feature_slice.shape[1]])
-        #        return embed
-        #    concat = keras.layers.Lambda(reshapes)(concat)    
-        
-            # concat = keras.layers.Reshape((-1,5,1))(concat)
-            # print(concat)
-            # concat = keras.layers.Flatten()(concat)
-            # print(concat)
-        #    dense = keras.layers.Dense(train_feature_slice.shape[1], activation='relu')(concat)
-        #    out   = keras.layers.Dense(1, activation='relu')(dense)
-        #    out   = keras.layers.Dense(1, activation='relu')(concat)
-        #    model = keras.models.Model(inputs=in0, outputs=[out0,out1,out2,out3,out4,out5,out6,out7,out8,out9,out10,out11,out12,out13,out])    
-        #    model = keras.models.Model(inputs=in0, outputs=[out0,out1,out2,out3,out4,out5,out6,out7,out8,out9,out10,out11,out12,out13,out14,out15,out16,out17,out18,out19,out20,out21,out22,out23,out24,out])
             model = keras.models.Model(inputs=in0, outputs=[out])    
         
             return model
@@ -499,22 +317,10 @@ for FD in['3']:
             error_range_record=[]
             index_min_val_loss_record,min_val_loss_record=[],[]
             
-            if os.path.exists(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name))
+            if os.path.exists(r"..\..\..\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"..\..\..\experiments_result\method_error_txt\{}.txt".format(method_name))
         
          
-        
-
-         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      
         
         
                
@@ -539,7 +345,7 @@ for FD in['3']:
         #        hist = model.fit(X_train, Y_train, batch_size=batch_size, epochs=nb_epochs,
         #                  verbose=1, validation_data=(X_test, Y_test), callbacks = [reduce_lr,earlystopping,modelcheckpoint])   
                 log = pd.DataFrame(hist.history)
-                log.to_excel(r"F:\桌面11.17\project\RUL\experiments_result\log\feature_select_valid0\{}_{}_dataset_{}_log{}_time{}.xlsx".format(method_name,all_feature_columns[i_all_feature_columns],dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
+                log.to_excel(r"..\..\..\experiments_result\log\feature_select_valid0\{}_{}_dataset_{}_log{}_time{}.xlsx".format(method_name,all_feature_columns[i_all_feature_columns],dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
                 
                 print(hist.history.keys())
                 epochs=range(len(hist.history['loss']))

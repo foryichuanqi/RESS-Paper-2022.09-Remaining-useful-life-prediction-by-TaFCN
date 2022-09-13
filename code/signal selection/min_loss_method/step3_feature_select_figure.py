@@ -54,8 +54,8 @@ font2 = {'family' : 'Times New Roman',
 plt.xlabel('feature',font1) #X轴标签
 plt.ylabel("mp",font1) #Y轴标签
 plt.title('FD1',font1)
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD1.eps',dpi=800,format='eps',bbox_inches = 'tight')
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD1.png',dpi=800,format='png',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD1.eps',dpi=800,format='eps',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD1.png',dpi=800,format='png',bbox_inches = 'tight')
 
 plt.show()
 
@@ -93,8 +93,8 @@ font2 = {'family' : 'Times New Roman',
 plt.xlabel('feature',font1) #X轴标签
 plt.ylabel("mp",font1) #Y轴标签
 plt.title('FD2',font1)
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD2.eps',dpi=800,format='eps',bbox_inches = 'tight')
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD2.png',dpi=800,format='png',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD2.eps',dpi=800,format='eps',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD2.png',dpi=800,format='png',bbox_inches = 'tight')
 
 plt.show()
 
@@ -131,8 +131,8 @@ font2 = {'family' : 'Times New Roman',
 plt.xlabel('feature',font1) #X轴标签
 plt.ylabel("mp",font1) #Y轴标签
 plt.title('FD3',font1)
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD3.eps',dpi=800,format='eps',bbox_inches = 'tight')
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD3.png',dpi=800,format='png',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD3.eps',dpi=800,format='eps',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD3.png',dpi=800,format='png',bbox_inches = 'tight')
 
 plt.show()
 
@@ -170,8 +170,8 @@ font2 = {'family' : 'Times New Roman',
 plt.xlabel('feature',font1) #X轴标签
 plt.ylabel("mp",font1) #Y轴标签
 plt.title('FD4',font1)
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD4.eps',dpi=800,format='eps',bbox_inches = 'tight')
-plt.savefig(r'F:\桌面11.17\project\RUL\figure\by_kernel\feature_select_FD4.png',dpi=800,format='png',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD4.eps',dpi=800,format='eps',bbox_inches = 'tight')
+plt.savefig(r'..\..\..\figure\by_kernel\feature_select_FD4.png',dpi=800,format='png',bbox_inches = 'tight')
 
 plt.show()
 

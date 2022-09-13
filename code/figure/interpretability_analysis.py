@@ -196,7 +196,7 @@ print("X_test.shape: {}".format(x_test.shape))
 print("Y_test.shape: {}".format(y_test.shape))
         
 
-model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\interpretability\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
+model=keras.models.load_model(r"..\..\model\interpretability\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
 
 ############## Get CAM ################
 import matplotlib.pyplot as plt
