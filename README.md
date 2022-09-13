@@ -2,9 +2,12 @@
  Using Trend attention fully convolutional network for remaining useful life estimation in the turbofan engine of CMAPSS dataset. Signal selection, Attention mechanism, and Interpretability of deep learning are explored.
  
 # Paper of Code and Citation
-Please cite this paper and the original source of the dataset when using the code for academic purposes.
+To better understand our code, please read our paper.
 
-(The website of paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 )
+Paper:Trend attention fully convolutional network for remaining useful life estimation
+The website of the paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 
+
+Please cite this paper and the original source of the dataset when using the code for academic purposes.
 
 GB/T 7714: 
 
@@ -23,6 +26,7 @@ BibTex:
 
 
 # Relationship between Code and Paper
+Paper:Trend attention fully convolutional network for remaining useful life estimation
 
  section 2.2. Loss boundary to mapping ability
  :code\signal selection   
