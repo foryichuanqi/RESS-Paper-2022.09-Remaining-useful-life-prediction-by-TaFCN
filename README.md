@@ -4,7 +4,7 @@
 # Paper of Code and Citation
 To better understand our code, please read our paper.
 
-Paper:Trend attention fully convolutional network for remaining useful life estimation
+Paper: Trend attention fully convolutional network for remaining useful life estimation
 The website of the paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 
 
 Please cite this paper and the original source of the dataset when using the code for academic purposes.
@@ -26,7 +26,6 @@ BibTex:
 
 
 # Relationship between Code and Paper
-Paper:Trend attention fully convolutional network for remaining useful life estimation
 
  section 2.2. Loss boundary to mapping ability
  :code\signal selection   
