@@ -17,6 +17,7 @@ and its subfolder.
 (1) To better understand our code, please read our paper.
 
     Paper: Trend attention fully convolutional network for remaining useful life estimation
+
     The website of the paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 
 
 (2) Please cite this paper and the original source of the dataset when using the code for academic purposes.
