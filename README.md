@@ -3,9 +3,13 @@ Trend attention fully convolutional network for remaining useful life estimation
 
 # Easy to run successfully
 To make code easy to run successfully, we debug the files carefully. Generally speaking, if environments are satisfied, you can directly run all the xxx.py files inside after decompressing the compressed package without changing any code.
+
 (1) Unzip Remaining_useful_life_prediction_by_LM_and_TaFCN_in_CMAPSS_dataset-main.zip
+
 (2) Rename the two folders by deleting "-main". "-" may cause path errors.
+
 "Remaining_useful_life_prediction_by_LM_and_TaFCN_in_CMAPSS_dataset-main" to "Remaining_useful_life_prediction_by_LM_and_TaFCN_in_CMAPSS_dataset"
+
 (3) Run any xxx.py directly
 
 # Paper of Code and Citation
