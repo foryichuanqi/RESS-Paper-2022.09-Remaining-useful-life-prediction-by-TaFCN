@@ -14,12 +14,12 @@ and its subfolder.
 (3) Run any xxx.py directly
 
 # Paper of Code and Citation
-To better understand our code, please read our paper.
+(1) To better understand our code, please read our paper.
 
 Paper: Trend attention fully convolutional network for remaining useful life estimation
 The website of the paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 
 
-Please cite this paper and the original source of the dataset when using the code for academic purposes.
+(2) Please cite this paper and the original source of the dataset when using the code for academic purposes.
 
 GB/T 7714: 
 
@@ -39,28 +39,28 @@ BibTex:
 
 # Relationship between Code and Paper
 
- section 2.2. Loss boundary to mapping ability
+ (1) Section 2.2. Loss boundary to mapping ability
  :code\signal selection   
 
- section 2.3. Trend attention fully convolutional network
+ (2) Section 2.3. Trend attention fully convolutional network
  :code\main(grid_FD_multi_channel_one_FCN_RUL_TaNet_attention_1out_all_train_for_test).py
 
- section  4. Interpretability
+ (3) Section  4. Interpretability
  :code\figure\interpretability_analysis.py
 
- Fig. 6. Attention analysis of TaNet.
+ (4) Fig. 6. Attention analysis of TaNet.
  :code\figure\interpretability_TaNet_analysis.py
 
- Fig. 7. Accumulated prediction error over RUL.
+ (5) Fig. 7. Accumulated prediction error over RUL.
  :code\figure\prediction_error.py
 
- Fig. 5. Wilcoxon signed rank test comparison of eight combinations
+ (6) Fig. 5. Wilcoxon signed rank test comparison of eight combinations
  :code\figure\heatmap_p.py   and   code\table\wilcxon.py
 
 
 # Environment and Acknowledgement:
 
-Environment:
+(1) Environment:
 tensorflow-gpu            1.15.0
 keras                     2.2.4
 scipy                     1.5.2
@@ -68,7 +68,7 @@ pandas                    1.0.5
 numpy                     1.19.1
 
 
-Acknowledgement: 
+(2) Acknowledgement: 
    Thanks for the following references sincerely.
    github：https://github.com/Vardoom/PredictiveMaintenanceNASA/blob/master/preprocess.ipynb
    github：https://github.com/schwxd/LSTM-Keras-CMAPSS
