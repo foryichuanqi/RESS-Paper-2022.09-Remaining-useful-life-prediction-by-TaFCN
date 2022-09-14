@@ -6,7 +6,8 @@ To make code easy to run successfully, we debug the files carefully. Generally s
 
 (1) Unzip Remaining_useful_life_prediction_by_LM_and_TaFCN_in_CMAPSS_dataset-main.zip
 
-(2) Rename the two folders by deleting "-main". "-" may cause path errors.
+(2) Rename the two folders by deleting "-main". "-" may cause path errors.Note that there are two folders that need to be renamed, they are the parent folder
+and its subfolder.
 
 "Remaining_useful_life_prediction_by_LM_and_TaFCN_in_CMAPSS_dataset-main" to "Remaining_useful_life_prediction_by_LM_and_TaFCN_in_CMAPSS_dataset"
 
