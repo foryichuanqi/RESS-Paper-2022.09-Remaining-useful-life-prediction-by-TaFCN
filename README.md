@@ -16,18 +16,18 @@ and its subfolder.
 # Paper of Code and Citation
 (1) To better understand our code, please read our paper.
 
-Paper: Trend attention fully convolutional network for remaining useful life estimation
-The website of the paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 
+    Paper: Trend attention fully convolutional network for remaining useful life estimation
+    The website of the paper：https://www.sciencedirect.com/science/article/pii/S0951832022002356 
 
 (2) Please cite this paper and the original source of the dataset when using the code for academic purposes.
 
-GB/T 7714: 
+    GB/T 7714: 
 
-Fan L, Chai Y, Chen X. Trend attention fully convolutional network for remaining useful life estimation[J]. Reliability Engineering & System Safety, 2022: 108590.
+    Fan L, Chai Y, Chen X. Trend attention fully convolutional network for remaining useful life estimation[J]. Reliability Engineering & System Safety, 2022: 108590.
 
 BibTex:
 
-@article{fan2022trend,
+    @article{fan2022trend,
   title={Trend attention fully convolutional network for remaining useful life estimation},
   author={Fan, Linchuan and Chai, Yi and Chen, Xiaolong},
   journal={Reliability Engineering \& System Safety},
@@ -61,15 +61,23 @@ BibTex:
 # Environment and Acknowledgement:
 
 (1) Environment:
-tensorflow-gpu            1.15.0
-keras                     2.2.4
-scipy                     1.5.2
-pandas                    1.0.5
-numpy                     1.19.1
+
+    tensorflow-gpu            1.15.0
+    
+    keras                     2.2.4
+    
+    scipy                     1.5.2
+    
+    pandas                    1.0.5
+    
+    numpy                     1.19.1
 
 
 (2) Acknowledgement: 
    Thanks for the following references sincerely.
+   
    github：https://github.com/Vardoom/PredictiveMaintenanceNASA/blob/master/preprocess.ipynb
+   
    github：https://github.com/schwxd/LSTM-Keras-CMAPSS
+   
    github：https://github.com/cauchyturing/UCR_Time_Series_Classification_Deep_Learning_Baseline
