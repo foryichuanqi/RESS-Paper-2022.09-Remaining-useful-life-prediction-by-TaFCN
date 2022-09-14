@@ -7,7 +7,7 @@ Trend attention fully convolutional network for remaining useful life estimation
 To make code easy to run successfully, we debug the files carefully. Generally speaking, if environments are satisfied, you can directly run all the xxx.py files inside after decompressing the compressed package without changing any code.
 
 
-(1) Unzip Remaining-useful-life-prediction-by-LM-and-TaFCN-main.zip
+(1) Unzip Remaining-useful-life-prediction-by-LM-and-TaFCN-main.zip, then unzip feature_select_valid0.rar in it
 
 
 (2) Run any xxx.py directly
@@ -21,7 +21,7 @@ To make code easy to run successfully, we debug the files carefully. Generally s
 
 Paper: Trend attention fully convolutional network for remaining useful life estimation
 
-The website of the paper£ºhttps://www.sciencedirect.com/science/article/pii/S0951832022002356 
+The website of the paperÂ£Âºhttps://www.sciencedirect.com/science/article/pii/S0951832022002356 
 
 
 
@@ -106,8 +106,8 @@ numpy                     1.19.1
 (2) Acknowledgement: 
 Thanks for the following references sincerely.
    
-github£ºhttps://github.com/Vardoom/PredictiveMaintenanceNASA/blob/master/preprocess.ipynb
+githubÂ£Âºhttps://github.com/Vardoom/PredictiveMaintenanceNASA/blob/master/preprocess.ipynb
    
-github£ºhttps://github.com/schwxd/LSTM-Keras-CMAPSS
+githubÂ£Âºhttps://github.com/schwxd/LSTM-Keras-CMAPSS
    
-github£ºhttps://github.com/cauchyturing/UCR_Time_Series_Classification_Deep_Learning_Baseline
+githubÂ£Âºhttps://github.com/cauchyturing/UCR_Time_Series_Classification_Deep_Learning_Baseline
