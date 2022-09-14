@@ -2,7 +2,7 @@
 Trend attention fully convolutional network for remaining useful life estimation in the turbofan engine of CMAPSS dataset. Signal selection, Attention mechanism, and Interpretability of deep learning are explored.
 
 # Easy to run successfully
-To make code easy to run successfully, we debug the files carefully. Generally speaking, if environments are satisfied, you can directly run all the codes inside after decompressing the compressed package without changing any code.
+To make code easy to run successfully, we debug the files carefully. Generally speaking, if environments are satisfied, you can directly run all the xxx.py files inside after decompressing the compressed package without changing any code.
 
 # Paper of Code and Citation
 To better understand our code, please read our paper.
