@@ -218,7 +218,7 @@ for FD in['1','2','3','4']: ######['1','2','3','4']
 
 
 
-    method_name='grid_FD{}_multi_channel_one_trend_attetion_num_test{}_segment_{}'.format(FD,num_test,segment)
+    method_name='grid_FD{}_TaNet_num_test{}_segment_{}'.format(FD,num_test,segment)
     # method_name='FCN_RUL_1out_train_split_test'
     dataset='cmapssd'
     
