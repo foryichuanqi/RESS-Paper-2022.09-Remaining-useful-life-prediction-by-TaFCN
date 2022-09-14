@@ -199,7 +199,7 @@ for FD in['4']: ######['1','2','3','4']
 
 
 
-    method_name='grid_FD{}_multi_channel_one_FCN_RUL_without_attention_num_test{}'.format(FD,num_test)
+    method_name='grid_FD{}_without_num_test{}'.format(FD,num_test)
     # method_name='FCN_RUL_1out_train_split_test'
     dataset='cmapssd'
     
