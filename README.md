@@ -1,10 +1,10 @@
-# Remaining-useful-life-prediction-by-LM-and-TaFCN-in-CMAPSS-dataset
+# Remaining-useful-life-prediction-by-TaFCN-in-CMAPSS-dataset
 Trend attention fully convolutional network for remaining useful life estimation in the turbofan engine PHM of CMAPSS dataset. Signal selection, Attention mechanism, and Interpretability of deep learning are explored.
 
 # Easy to run successfully
 To make code easy to run successfully, we debug the files carefully. Generally speaking, if environments are satisfied, you can directly run all the xxx.py files inside after decompressing the compressed package without changing any code.
 
-(1) Unzip Remaining-useful-life-prediction-by-LM-and-TaFCN-main.zip, then unzip feature_select_valid0.rar in it
+(1) Unzip Remaining-useful-life-prediction-by-LM-and-TaFCN-main.zip, then unzip fd.rar in it
 
 (2) Run any xxx.py directly
 
