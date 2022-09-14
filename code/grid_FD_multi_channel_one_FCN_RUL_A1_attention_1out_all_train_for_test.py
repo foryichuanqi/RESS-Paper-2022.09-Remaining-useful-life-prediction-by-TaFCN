@@ -49,7 +49,7 @@ run_times=10
 
 
 
-nb_epochs=2      
+nb_epochs=2000      
 batch_size=1024  
 
 
@@ -205,7 +205,7 @@ for FD in['1','2','3','4']: ######['1','2','3','4']
 
 
 
-    method_name='grid_FD{}_multi_channel_one_exp_attetion_num_test{}'.format(FD,num_test)
+    method_name='grid_FD{}_A1_num_test{}'.format(FD,num_test)
     # method_name='FCN_RUL_1out_train_split_test'
     dataset='cmapssd'
     
