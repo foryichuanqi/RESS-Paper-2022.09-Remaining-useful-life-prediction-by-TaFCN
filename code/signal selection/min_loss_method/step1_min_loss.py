@@ -298,7 +298,7 @@ for FD in['1','2','3','4']: ######['1','2','3','4']
         
     print('FD{}B={}'.format(FD,B))
     
-    minloss=((-0.5*A)**2-A**2/2+B)**0.5    ########  lossb get min value of the () of Eq.(1) of our paper when x=-0.5*A.
+    minloss=((-0.5*A)**2-A**2/2+B)**0.5    ########  lossb get min value of the () of Eq.(1) of our paper when x=-0.5*A.-0.5*A is the average value of  ytrue label.
     print('FD{}minloss={}'.format(FD,minloss))
     
 
