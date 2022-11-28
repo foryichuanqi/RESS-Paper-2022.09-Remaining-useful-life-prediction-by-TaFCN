@@ -471,12 +471,21 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     
             # print('!!!!!!!!!!!!!!!!  {} {} {}::runtime:{}____min_error:{}'.format(method_name,num,each,i,'%.5f'%min(error_record)))
     
-        for i in error_record:
-            if i>40:
-                unbalanced_penalty_score_record.remove(unbalanced_penalty_score_record[error_record.index(i)])                
-                error_range_left_record.remove(error_range_left_record[error_record.index(i)])
-                error_range_right_record.remove(error_range_right_record[error_record.index(i)])
-                error_record.remove(i)
+            r0=[]
+            r1=[]
+            r2=[]
+            r3=[]                        
+            for i in range(len(error_record)):
+
+                if error_record[i]<40:
+                    r0.append(unbalanced_penalty_score_record[i])
+                    r1.append(error_range_left_record[i])
+                    r2.append(error_range_right_record[i])
+                    r3.append(error_record[i])
+            unbalanced_penalty_score_record=r0
+            error_range_left_record=r1
+            error_range_right_record=r2
+            error_record=r3
         file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
         file.write('    mean_score:'+'     ('+str(np.mean(error_record))+')     '+'       '+'     mean_RMSE:   '+ str('%.6f'%(np.mean(error_record)))+'     '+'UPE:    '+ str('%.6f'%(np.mean(unbalanced_penalty_score_record)))+ '    ('+str('%.6f'%(np.mean(error_range_left_record)))+','+str('%.6f'%(np.mean(error_range_right_record)))+')'+'        '  +'\n')
         file.close()
