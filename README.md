@@ -1,7 +1,7 @@
 # Remaining-useful-life-prediction-by-TaFCN-in-CMAPSS-dataset
 Trend attention fully convolutional network for remaining useful life estimation in the turbofan engine PHM of CMAPSS dataset. Signal selection, Attention mechanism, and Interpretability of deep learning are explored.
 
-# Revision
+# Revision on November 28.
 Please note that the code for recording the experimental results was revised on November 28. Previous code may make the recorded experimental indicators RMSE and S greater than the correct value.
 
 # Easy to reproduce all details of our paper successfully
