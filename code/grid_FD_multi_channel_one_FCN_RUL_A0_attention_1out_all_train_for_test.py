@@ -381,8 +381,8 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
         error_range_right_record=[]
         index_min_val_loss_record,min_val_loss_record=[],[]
         
-        if os.path.exists(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name))
-    
+        if os.path.exists(last_path+r"\experiments_result\method_error_txt\{}.txt".format(method_name)):os.remove(last_path+r"\experiments_result\method_error_txt\{}.txt".format(method_name))
+   
      
     
    
@@ -416,7 +416,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     #        hist = model.fit(X_train, Y_train, batch_size=batch_size, epochs=nb_epochs,
     #                  verbose=1, validation_data=(X_test, Y_test), callbacks = [reduce_lr,earlystopping,modelcheckpoint])   
             log = pd.DataFrame(hist.history)
-            log.to_excel(r"F:\桌面11.17\project\RUL\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
+            log.to_excel(last_path+r"\experiments_result\log\{}_dataset_{}_log{}_time{}.xlsx".format(method_name,dataset,i,datetime.datetime.now().strftime('%Y%m%d%H%M%S')))
             
             print(hist.history.keys())
             epochs=range(len(hist.history['loss']))
@@ -428,7 +428,6 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
             plt.show()
     
             
-    #        model=keras.models.load_model(r"F:\桌面11.17\project\RUL\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error,'Smooth':Smooth,'SeBlock':SeBlock})
             model=keras.models.load_model(last_path+r"\model\FCN_RUL_1out_train_valid_test\{}.h5".format(model_name),custom_objects={'root_mean_squared_error': root_mean_squared_error})
             for layer in model.layers:
                 layer.trainable=False        
@@ -461,7 +460,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
     
 
             
-            file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
+            file = open(last_path+r"\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
             file.write( '       ('+str(i)+ ')   '+'index_min_loss:'+str(index_min_val_loss)+'        min_val_loss:'+str(min_val_loss)+'     RMSE:'+'    '+str('%.6f'%(rmse_value))+'     '+'UPE:'+'    '+str('%.6f'%(unbalanced_penalty_score))+'    '+'ER:'+'('+str('%.6f'%(error_range[0]))+','+str('%.6f'%(error_range[1]))+')')
          
     #        file.write( 'error:'+'   '+str('%.5f'%(1-log.loc[log['loss'].idxmin]['val_acc']))+'        '+'corresponding_min_loss:'+'   '+str('%.5f'%log.loc[log['loss'].idxmin]['loss']) +'        '+str(flist.index(each))+'        ' +each +'\n')
@@ -487,7 +486,7 @@ for FD in['1','2','4','3']: ######['1','2','3','4']
         error_range_right_record=r2
         error_record=r3
         
-        file = open(r"F:\桌面11.17\project\RUL\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
+        file = open(last_path+r"\experiments_result\method_error_txt\{}.txt".format(method_name), 'a')
         file.write('    mean_score:'+'     ('+str(np.mean(error_record))+')     '+'       '+'     mean_RMSE:   '+ str('%.6f'%(np.mean(error_record)))+'     '+'UPE:    '+ str('%.6f'%(np.mean(unbalanced_penalty_score_record)))+ '    ('+str('%.6f'%(np.mean(error_range_left_record)))+','+str('%.6f'%(np.mean(error_range_right_record)))+')'+'        '  +'\n')
         file.close()
         error_record=[]
