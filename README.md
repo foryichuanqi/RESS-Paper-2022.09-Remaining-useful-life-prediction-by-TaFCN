@@ -13,9 +13,12 @@ The website of the paper：https://www.sciencedirect.com/science/article/pii/S09
 # Easy to reproduce all details of our paper successfully
 The downloaded compressed package can reproduce all the details of our article, including almost all the experimental tables and figures. To make code easy to run successfully, we debug the files carefully. Generally speaking, if environments are satisfied, you can directly run all the xxx.py files inside after decompressing the compressed package without changing any code.
 
-(1) Unzip Remaining-useful-life-prediction-by-LM-and-TaFCN-main.zip, then unzip fd.rar in it
+(1) Download and rename Remaining-useful-life-prediction-by-LM-and-TaFCN-main.zip to TaFCN.zip (Rename to avoid errors caused by long directories)
 
-(2) Run any xxx.py directly
+(2) Unzip TaFCN.zip, then unzip fd.rar in it
+
+(3) Run any xxx.py directly
+
 
 # Paper of Code and Citation
 (1) To better understand our code, please read our paper.
